@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotesTableViewController: UITableViewController {
+class NotesTableViewController: UITableViewController, AddNoteViewControllerDelegate {
     
     var notes:NSArray
     
@@ -33,5 +33,24 @@ class NotesTableViewController: UITableViewController {
         cell.textLabel!.text = notes[indexPath.row] as? String
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "ShowAddNote"){
+            let addNoteViewController = segue.destinationViewController as? AddNoteViewController
+            addNoteViewController?.delegate = self
+        }
+    }
+    
+    func saveNote(controller: AddNoteViewController, noteText: String) {
+        println("Text from view controller: \(noteText)")
+        
+        var mutableNotes:NSMutableArray = NSMutableArray(array: notes)
+            mutableNotes.addObject(noteText)
+            notes = NSArray(array: mutableNotes)
+        tableView.reloadData()
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }
