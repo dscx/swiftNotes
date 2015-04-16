@@ -30,7 +30,7 @@ class NotesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell")
             as! UITableViewCell
     
-        cell.textLabel!.text = notes[indexPath.row] as! NSString as String
+        cell.textLabel!.text = notes[indexPath.row] as? String
         
         return cell
     }

@@ -13,6 +13,7 @@
 		C24BB97B1AE04CA200FF9C91 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C24BB9791AE04CA200FF9C91 /* LaunchScreen.xib */; };
 		C24BB9871AE04CA200FF9C91 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BB9861AE04CA200FF9C91 /* NotesTests.swift */; };
 		C24BB9911AE04E0900FF9C91 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BB9901AE04E0800FF9C91 /* NotesTableViewController.swift */; };
+		C24BB9941AE0673400FF9C91 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BB9931AE0673400FF9C91 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C24BB9851AE04CA200FF9C91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C24BB9861AE04CA200FF9C91 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		C24BB9901AE04E0800FF9C91 /* NotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
+		C24BB9931AE0673400FF9C91 /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C24BB9791AE04CA200FF9C91 /* LaunchScreen.xib */,
 				C24BB96E1AE04CA200FF9C91 /* Supporting Files */,
 				C24BB9901AE04E0800FF9C91 /* NotesTableViewController.swift */,
+				C24BB9931AE0673400FF9C91 /* AddNoteViewController.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				C24BB9711AE04CA200FF9C91 /* AppDelegate.swift in Sources */,
 				C24BB9911AE04E0900FF9C91 /* NotesTableViewController.swift in Sources */,
+				C24BB9941AE0673400FF9C91 /* AddNoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
