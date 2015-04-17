@@ -11,11 +11,20 @@ import UIKit
 class NotesTableViewController: UITableViewController, AddNoteViewControllerDelegate {
     
     var notes:NSArray
+    var session:NSURLSession
     
     required init(coder aDecoder: NSCoder) {
-        notes = ["Sample Note 1",  "Sample Note 2", "Sample Note 3"]
+//        notes = ["Sample Note 1",  "Sample Note 2", "Sample Note 3"]
+        notes = []
+        session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         
         super.init(coder: aDecoder)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        loadNotes()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -52,5 +61,25 @@ class NotesTableViewController: UITableViewController, AddNoteViewControllerDele
         
         dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    func loadNotes() -> Void {
+        let requestUrl = NSMutableURLRequest(URL: NSURL(string:"http://localhost:8080/notes")!)
+        let getNotesTask = session.dataTaskWithRequest(requestUrl, completionHandler: { (responseData, response, error) -> Void in
+            var readJSONError:NSError?
+            let noteTextJSONData = NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments, error:&readJSONError) as! NSArray
+            
+            if let err = readJSONError {
+                println(err.localizedDescription)
+            } else {
+             let mutableArray = NSMutableArray()
+                for note in noteTextJSONData {
+                    mutableArray.addObject(note["name"] as! NSString)
+                }
+                self.notes = mutableArray.copy() as! NSArray
+            }
+            self.tableView.reloadData()
+        })
+        getNotesTask.resume()
     }
 }
